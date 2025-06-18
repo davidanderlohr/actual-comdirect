@@ -8,6 +8,8 @@ const csv = require('csv-parser');
 
 require('dotenv').config();
 
+const regex = /(?:Empfänger|Auftraggeber):\s*(.*?)(?=\s+(?:Ref\.|Kto\/IBAN:|Buchungstext:))/g;
+
 
 // Exportable function for importing CSV (for CLI and web UI)
 async function importCsvToActual(csvPath, passwordOverride) {
@@ -52,12 +54,23 @@ async function importCsvToActual(csvPath, passwordOverride) {
         let amount = api.utils.amountToInteger(parseFloat(euro_string_clean));
         let notes = text;
         let imported_id = text + ' ' + date;
+        let match;
+        const parties = [];
+
+        while ((match = regex.exec(text)) !== null) {
+          parties.push(match[1].trim());
+        }
+        if (parties.length > 0) {
+          imported_payee = parties[0];
+        } else {
+          imported_payee = text;
+        }
         let transaction = {
             account: accountId,
             date: date,
             amount: amount,
             notes: notes,
-            imported_payee: imported_id,
+            imported_payee: imported_payee,            
             imported_id: imported_id,
         }
         transactions.push(transaction);
