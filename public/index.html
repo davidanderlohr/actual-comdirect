@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Actual Budget CSV Import</title>
+</head>
+<body>
+  <h1>Upload comdirect CSV to Actual Budget</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="csvfile" accept=".csv" required />
+    <br><br>
+    <label for="password">Actual Server Password:</label>
+    <input type="password" name="password" id="password" />
+    <br><br>
+    <button type="submit">Upload and Import</button>
+  </form>
+</body>
+</html>

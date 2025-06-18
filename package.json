@@ -1,0 +1,33 @@
+{
+  "name": "actual-comdirect",
+  "version": "1.0.0",
+  "description": "Extract transactions from comdirect CSVs",
+  "keywords": [
+    "actual",
+    "actual-budget",
+    "comdirect"
+  ],
+  "homepage": "https://github.com/davidanderlohr/actual-comdirect#readme",
+  "bugs": {
+    "url": "https://github.com/davidanderlohr/actual-comdirect/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidanderlohr/actual-comdirect.git"
+  },
+  "license": "MIT",
+  "author": "David Anderlohr",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@actual-app/api": "^25.6.1",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "iconv-lite": "^0.6.3",
+    "multer": "^2.0.1"
+  }
+}
