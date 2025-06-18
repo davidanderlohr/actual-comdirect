@@ -8,4 +8,5 @@ services:
       - .env
     volumes:
       - ./uploads:/app/uploads
+      - ./cache:/app/cache
     restart: unless-stopped
