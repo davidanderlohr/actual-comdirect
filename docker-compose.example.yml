@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  app:
+  actual-comdirect:
     image: ghcr.io/davidanderlohr/actual-comdirect:latest
     ports:
       - "5007:3000"
